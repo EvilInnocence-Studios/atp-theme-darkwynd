@@ -4,5 +4,4 @@ import { customRoutes } from "./lib/routes";
 export const module:IModule = {
     name: "darkwynd",
     routes: customRoutes,
-}
-
+};

@@ -1,4 +1,5 @@
 import { HalfSkyscraperAd, WideSkyscraperAd } from "@comic/components/ComicAd";
+import { BannerList } from "@common/components/BannerList";
 import { LinkList } from "@common/components/LinkList";
 import { Col, Row } from "antd";
 import { FancyHeader } from "../FancyHeader";
@@ -11,6 +12,7 @@ export const LinksComponent = ({}:LinksProps) => <>
     <ShadowBackground>
         <Row>
             <Col xs={7} className={styles.leftAd}>
+                <BannerList tag="linksLeft" columns={1} /><br/>
                 <HalfSkyscraperAd code="VIusOQjhzh" />
             </Col>
             <Col xs={10}>
@@ -26,6 +28,7 @@ export const LinksComponent = ({}:LinksProps) => <>
                 </div>
             </Col>
             <Col xs={7} className={styles.rightAd}>
+                <BannerList tag="linksRight" columns={1} /><br/>
                 <WideSkyscraperAd code="3QtYTqQ15U" />
             </Col>
         </Row>

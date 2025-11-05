@@ -2,12 +2,20 @@
 
 .leftAd {
     text-align: right;
-    > * {display:  inline-block;}
+    > * {
+        display:  inline-block;
+        &:first-child {margin-bottom: 232px;}
+        width: 160px;
+    }
 }
 
 .rightAd {
     text-align: left;
-    > * {display:  inline-block;}
+    > * {
+        display:  inline-block;
+        &:first-child {margin-bottom: 232px;}
+        width: 160px;
+    }
 }
 
 .linksPage {
