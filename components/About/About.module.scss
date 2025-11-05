@@ -1,0 +1,48 @@
+@use "@styles/globals.module.scss";
+
+.about {
+    padding: var(--padding);
+    max-width: 768px;
+    margin: auto;
+    .credit {
+        clear: both;
+        margin-bottom: var(--paddingLarge);
+        margin-left: 64px;
+        border: solid 8px var(--borderColor);
+        border-radius: var(--borderRadius);
+        background-color: var(--bgLightColor);
+        padding: 0;
+        .icon {
+            width: 128px;
+            height: 128px;
+            margin-bottom: 16px;
+            margin-left: -64px;
+            margin-top: -8px;
+            font-size: 64px;
+            border-radius: 64px;
+            border: solid 8px var(--borderColor);
+            float: left;
+            background-color: var(--bgColor);
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .role {
+            font-size: var(--textSizeXL);
+            float: right;
+            font-style: italic;
+        }
+        h3 {
+            margin: 0;
+            font-size: var(--textSizeXL);
+            background-color: var(--bgColor);
+            padding: var(--padding) var(--paddingLarge);
+        }
+        .info {
+            max-width: calc(100% - 64px);
+            padding: var(--padding);
+            font-size: large;
+        }
+    }
+}

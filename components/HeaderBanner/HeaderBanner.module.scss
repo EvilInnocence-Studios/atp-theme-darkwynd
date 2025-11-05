@@ -1,0 +1,12 @@
+@use "@styles/globals.module.scss";
+
+.banner {
+    width: 100%;
+    text-align: right;
+    height: 200px;
+    position: relative;
+    img {
+        position: absolute;
+        right: 0;
+    }
+}
