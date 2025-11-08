@@ -1,6 +1,6 @@
 @use "@styles/globals.module.scss";
 
-headerContainer {
+.headerContainer {
     width: 100%;
     overflow: hidden;
 }
@@ -19,7 +19,7 @@ headerContainer {
     left: calc(50% - 1920px/2);
     text-align: center;
     height: 300px;
-    width: 1920px;
+    width: 100%;
     overflow: visible;
     font-family: "DarkwyndFont", sans-serif;
     font-size: 32px;
