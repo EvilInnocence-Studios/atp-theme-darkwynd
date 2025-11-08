@@ -14,8 +14,8 @@ import { ShadowBackground } from "@darkwynd/components/ShadowBackground";
 import { HeaderBanner } from "@public/components/Layout/Header/HeaderBanner";
 import { ProductPage } from "@store/components/ProductPage";
 
-import torment from "../components/torment.png";
 import tormentDark from "../components/torment-dark.png";
+import torment from "../components/torment.png";
 
 // Custom site banner
 HeaderBanner.override(CustomBanner);
