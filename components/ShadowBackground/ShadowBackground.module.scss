@@ -3,6 +3,21 @@
 .shadowBackgroundContainer {
     position: relative;
     padding-top: 164px;
+    overflow: hidden; // keep blurred blobs from overflowing
+
+    // JS-driven blob layer
+    .blobLayer {
+        position: absolute;
+        inset: -10%;
+        z-index: 1; // below .shadowBackground (8) and .content (11)
+        pointer-events: none;
+        opacity: 0.3;
+        background-repeat: no-repeat;
+        background-blend-mode: color-burn;
+        filter: blur(60px) saturate(115%);
+        transform: translateZ(0);
+    }
+
     .shadowBackground {
         position: absolute;
         width: 100%;
@@ -16,3 +31,26 @@
         z-index: 11;
     }
 }
+
+// Animated drift to simulate randomness
+@keyframes dw-float-blobs {
+    0% {
+        background-position: 10% 15%, 85% 12%, 20% 80%, 70% 70%, 50% 35%;
+    }
+    20% {
+        background-position: 16% 22%, 79% 17%, 27% 76%, 66% 66%, 57% 41%;
+    }
+    40% {
+        background-position: 22% 28%, 73% 21%, 33% 71%, 61% 60%, 51% 47%;
+    }
+    60% {
+        background-position: 28% 34%, 67% 27%, 39% 65%, 55% 55%, 45% 52%;
+    }
+    80% {
+        background-position: 33% 39%, 62% 33%, 44% 59%, 50% 50%, 40% 57%;
+    }
+    100% {
+        background-position: 38% 44%, 57% 39%, 49% 54%, 45% 45%, 35% 62%;
+    }
+}
+
