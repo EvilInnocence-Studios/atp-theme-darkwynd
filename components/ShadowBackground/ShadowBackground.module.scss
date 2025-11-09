@@ -3,6 +3,7 @@
 .shadowBackgroundContainer {
     position: relative;
     overflow: hidden; // keep blurred blobs from overflowing
+    width: 100%;
 
     // JS-driven blob layer
     .blobLayer {
