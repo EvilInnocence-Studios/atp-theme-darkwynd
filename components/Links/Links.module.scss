@@ -38,4 +38,10 @@
             margin: 0 auto var(--paddingSmall) auto;
         }
     }
+    .bottomAd {
+        text-align: center;
+        > * {
+            display:  inline-block;
+        }
+    }
 }
