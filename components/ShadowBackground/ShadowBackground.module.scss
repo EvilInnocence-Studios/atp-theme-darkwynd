@@ -2,7 +2,6 @@
 
 .shadowBackgroundContainer {
     position: relative;
-    padding-top: 164px;
     overflow: hidden; // keep blurred blobs from overflowing
 
     // JS-driven blob layer
@@ -18,17 +17,11 @@
         transform: translateZ(0);
     }
 
-    .shadowBackground {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        bottom: 0;
-        background-size: auto 100vh, auto 100vh;
-        z-index: 8;
-    }
     .content {
         position: relative;
-        z-index: 11;
+        padding-top: 164px;
+        background-size: 40% !important;
+        z-index: 1;
     }
 }
 

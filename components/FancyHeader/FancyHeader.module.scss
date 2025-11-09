@@ -2,7 +2,7 @@
 
 .headerContainer {
     width: 100%;
-    overflow: hidden;
+    position: relative;
 }
 
 @font-face {
@@ -13,17 +13,15 @@
 .curved {
     position: absolute;
     top: 0;
-    margin-top: 263px;
-    padding-top: 0px;
-    background-color: var(--bgColor);
-    left: calc(50% - 1920px/2);
+    left: 0;
+    margin: 0;
+    background-color: transparent;
+    background-position: center 0px !important;
     text-align: center;
-    height: 300px;
     width: 100%;
-    overflow: visible;
+    height: 180px;
     font-family: "DarkwyndFont", sans-serif;
     font-size: 32px;
-    font-kerning: normal;
     color: var(--bgColor);
     text-shadow:
         2px 2px 4px var(--primaryColor),

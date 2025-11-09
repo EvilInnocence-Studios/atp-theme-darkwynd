@@ -129,14 +129,11 @@ export const ShadowBackgroundComponent = ({
 		<div className={styles.shadowBackgroundContainer}>
 			{false && <div className={styles.blobLayer} ref={layerRef} />}
 			<div
-				className={styles.shadowBackground}
-				style={{background: `url(${shadowL}) left top repeat-y`, backgroundSize: "40%"}}
-			/>
-			<div
-				className={styles.shadowBackground}
-				style={{background: `url(${shadowR}) right top repeat-y`, backgroundSize: "40%"}}
-			/>
-			<div className={styles.content}>
+				className={styles.content}
+				style={{
+					background: `url(${shadowL}) left top repeat-y, url(${shadowR}) right top repeat-y`,
+				}}
+			>
                 {children}
 			</div>
 		</div>

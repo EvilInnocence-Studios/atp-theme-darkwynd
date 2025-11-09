@@ -13,12 +13,43 @@ import { HeaderBanner as CustomBanner } from "@darkwynd/components/HeaderBanner"
 import { ShadowBackground } from "@darkwynd/components/ShadowBackground";
 import { HeaderBanner } from "@public/components/Layout/Header/HeaderBanner";
 import { ProductPage } from "@store/components/ProductPage";
+import { Footer } from "@public/components/Layout/Footer";
 
 import tormentDark from "../components/torment-dark.png";
 import torment from "../components/torment.png";
+import swooshL from "../components/swoosh-l.png";
+import swooshR from "../components/swoosh-r.png";
 
 // Custom site banner
 HeaderBanner.override(CustomBanner);
+
+Footer.override(({Original}) => <>
+    <style>{`
+        .footer-background {
+            overflow: visible;
+            pointer-events: none;
+            > * {
+                background-color: var(--bgColor);
+                pointer-events: all;
+            }
+        }
+        .footer-background:before {
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 0;
+            background: url(${swooshL}) left top no-repeat, url(${swooshR}) right top no-repeat;
+            padding-top: 190px;
+            background-color: transparent;
+            margin-top: -206px;
+            width: 100%;
+            z-index: 999;
+        }
+    `}</style>
+    <div className="footer-background">
+        <Original />
+    </div>
+</>);
 
 // Custom fancy header and shadow background for the archives
 ArchivesHeader.hide();
@@ -98,7 +129,7 @@ Page.override(connectPageView(({Original, page, pageNumber}: any) => <>
 
 ProductPage.override(({Original}) => <>
     <ShadowBackground>
-        <div style={{marginTop: "-128px"}}>
+        <div style={{marginTop: "-188px"}}>
             <Original />
         </div>
     </ShadowBackground>
