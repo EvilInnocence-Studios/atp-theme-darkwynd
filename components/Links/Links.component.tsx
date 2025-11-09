@@ -10,22 +10,20 @@ import styles from './Links.module.scss';
 export const LinksComponent = ({}:LinksProps) => <>
     <FancyHeader text="Links" />
     <ShadowBackground>
-        <Row>
+        <Row className={styles.linksPage}>
             <Col xs={7} className={styles.leftAd}>
                 <BannerList tag="linksLeft" columns={1} /><br/>
                 <HalfSkyscraperAd code="VIusOQjhzh" />
             </Col>
             <Col xs={10}>
-                <div className={styles.linksPage}>
-                    <h2>Darkwynd Chronicles Webcomics</h2>
-                    <LinkList id="darkwynd-links" />
+                <h2>Darkwynd Chronicles Webcomics</h2>
+                <LinkList id="darkwynd-links" />
 
-                    <h2>Sync Webtoon</h2>
-                    <LinkList id="sync-webtoon-links" />
+                <h2>Sync Webtoon</h2>
+                <LinkList id="sync-webtoon-links" />
 
-                    <h2>Socials</h2>
-                    <LinkList id="social-links" />
-                </div>
+                <h2>Socials</h2>
+                <LinkList id="social-links" />
             </Col>
             <Col xs={7} className={styles.rightAd}>
                 <BannerList tag="linksRight" columns={1} /><br/>
