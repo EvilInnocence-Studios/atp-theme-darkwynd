@@ -5,7 +5,7 @@ import styles from './About.module.scss';
 import { ShadowBackground } from "../ShadowBackground";
 
 export const AboutComponent = ({credits}:AboutProps) => <>
-    <FancyHeader text="Creative Team" />
+    <FancyHeader text="About Us" />
     <ShadowBackground>
         <div className={styles.about}>
             <div className={styles.credits}>
