@@ -123,7 +123,7 @@ LatestPage.override(({Original}) => <>
 
 // Add shadowed background and fancy header to individual comic pages
 Page.override(connectPageView(({Original, page, pageNumber}: any) => <>
-    <FancyHeader text={`Page ${pageNumber}: ${page?.name}`} />
+    <FancyHeader text={`Page ${pageNumber}`} />
     <ShadowBackground>
         <Original />
     </ShadowBackground>
