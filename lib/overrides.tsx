@@ -20,7 +20,6 @@ import swooshL from "../components/swoosh-l.png";
 import swooshR from "../components/swoosh-r.png";
 import tormentDark from "../components/torment-dark.png";
 import torment from "../components/torment.png";
-import { NewProducts } from "@store/components/NewProducts";
 
 // Custom site banner
 HeaderBanner.override(CustomBanner);
