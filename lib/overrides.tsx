@@ -132,7 +132,7 @@ Page.override(connectPageView(({Original, pageNumber}: any) => <>
 
 ProductPage.override(({Original}) => <>
     <ShadowBackground>
-        <div style={{marginTop: "-188px"}}>
+        <div style={{marginTop: "-156px"}}>
             <Original />
         </div>
     </ShadowBackground>
