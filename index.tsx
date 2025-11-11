@@ -9,6 +9,6 @@ export const module:IModule = {
 };
 
 comicPlugins.latestPage.extras.register(50, () => <>
-    <NewProducts />
+    <NewProducts title="Featured Products" />
     <div style={{width: "100%", height: "128px"}} />
 </>);
