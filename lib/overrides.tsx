@@ -102,7 +102,7 @@ PageComponent.override(({Original, page, notFound}) => <>
         <Original />
     </ShadowBackground>
 </>);
-// PageHeader.hide();
+PageHeader.hide();
 
 // Add shadowed background and fancy header to characters page
 CharactersPage.override(({Original}) => <>
