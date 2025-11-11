@@ -126,7 +126,9 @@ export const ShadowBackgroundComponent = ({
 	}, [baseColor, blobCount, colorVariation, baseBlobSize, sizeVariation, baseBlurSize, blurVariation, animationSpeed, animationRandomness]);
 
 	return (
-		<div className={styles.shadowBackgroundContainer}>
+		<div className={styles.shadowBackgroundContainer} style={{
+			background: `url(${shadowL}) left top repeat-y, url(${shadowR}) right top repeat-y`,
+		}}>
 			{false && <div className={styles.blobLayer} ref={layerRef} />}
 			<div
 				className={styles.content}
