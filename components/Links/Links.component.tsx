@@ -21,6 +21,7 @@ export const LinksComponent = ({}:LinksProps) => <>
 
                 <h2>Sync Webtoon</h2>
                 <LinkList id="sync-webtoon-links" />
+                <BannerList tag="linksMobile" columns={1} />
 
                 <h2>Socials</h2>
                 <LinkList id="social-links" />

@@ -20,6 +20,19 @@
 
 .linksPage {
     padding-bottom: 64px;
+    .linkLists {
+        :global(.hero) {
+            text-align: center;
+            height: auto;
+            aspect-ratio: unset;
+            > * {
+                position: static;
+                max-width: 512px;
+                display: inline-block;
+                margin: auto;
+            }
+        }
+    }
     h2 {
         text-align: center;
     }
