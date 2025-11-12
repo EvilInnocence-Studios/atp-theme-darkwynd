@@ -13,7 +13,7 @@ export const LinksComponent = ({}:LinksProps) => <>
         <Row className={styles.linksPage}>
             <Col  xs={0} sm={7} className={styles.leftAd}>
                 <BannerList tag="linksLeft" columns={1} /><br/>
-                <HalfSkyscraperAd code="VIusOQjhzh" />
+                <HalfSkyscraperAd key={`left-ad-${Date.now()}`} code="VIusOQjhzh" />
             </Col>
             <Col xs={24} sm={10} className={styles.linkLists}>
                 <h2>Darkwynd Chronicles Webcomics</h2>
@@ -28,10 +28,10 @@ export const LinksComponent = ({}:LinksProps) => <>
             </Col>
             <Col xs={0} sm={7} className={styles.rightAd}>
                 <BannerList tag="linksRight" columns={1} /><br/>
-                <WideSkyscraperAd code="3QtYTqQ15U" />
+                <WideSkyscraperAd key={`right-ad-${Date.now()}`} code="3QtYTqQ15U" />
             </Col>
             <Col xs={24} sm={0} className={styles.bottomAd}>
-                <BannerAd code="T5fg5kxu4G" />
+                <BannerAd key={`bottom-ad-${Date.now()}`} code="T5fg5kxu4G" />
             </Col>
         </Row>
     </ShadowBackground>
