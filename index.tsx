@@ -15,6 +15,6 @@ comicPlugins.latestPage.extras.register(50, () => <>
             background: var(--bgColor);
         }`}
     </style>
-    <NewProducts title="Featured Products" hideCartButton className="homepageFeaturedProducts" />
+    <NewProducts title="Get the Books!" hideCartButton className="homepageFeaturedProducts" />
     <div style={{width: "100%", height: "128px"}} />
 </>);
