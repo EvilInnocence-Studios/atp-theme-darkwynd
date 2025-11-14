@@ -9,7 +9,7 @@ import styles from './Links.module.scss';
 
 export const LinksComponent = ({}:LinksProps) => <>
     <FancyHeader text="Links" />
-    <ShadowBackground>
+    <ShadowBackground hideLeftBottom hideRightBottom>
         <Row className={styles.linksPage}>
             <Col  xs={0} sm={7} className={styles.leftAd}>
                 <BannerList tag="linksLeft" columns={1} /><br/>

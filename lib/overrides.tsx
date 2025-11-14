@@ -14,12 +14,14 @@ import { ShadowBackground } from "@darkwynd/components/ShadowBackground";
 import { Footer } from "@public/components/Layout/Footer";
 import { HeaderBanner } from "@public/components/Layout/Header/HeaderBanner";
 import { ProductPage } from "@store/components/ProductPage";
-
 import { SearchResults } from "@store/components/ProductsPage/SearchResults";
+
 import swooshL from "../components/swoosh-l.png";
 import swooshR from "../components/swoosh-r.png";
 import tormentDark from "../components/torment-dark.png";
 import torment from "../components/torment.png";
+import { MyAccount } from "@uac/components/MyAccount";
+import { Cart } from "@store/components/Cart";
 
 // Custom site banner
 HeaderBanner.override(CustomBanner);
@@ -98,7 +100,7 @@ SocialLinks.override(({Original}) => <>
 // Add shadowed background and fancy header to CMS pages
 PageComponent.override(({Original, page, notFound}) => <>
     <FancyHeader text={page?.title || (notFound  ? "404: Page Not Found" : "Loading...")} />
-    <ShadowBackground>
+    <ShadowBackground hideLeftBottom hideRightBottom hideLeftTop hideRightTop>
         <Original />
     </ShadowBackground>
 </>);
@@ -116,7 +118,7 @@ CharacterPageHeader.hide();
 // Add shadowed background and fancy header to latest page
 LatestPage.override(({Original}) => <>
     <FancyHeader text="Latest Page" />
-    <ShadowBackground>
+    <ShadowBackground hideRightTop>
         <Original />
     </ShadowBackground>
 </>);
@@ -130,15 +132,35 @@ Page.override(connectPageView(({Original, pageNumber}: any) => <>
     </ShadowBackground>
 </>));
 
+// ProductsPage.override(({Original}) => <>
+//     <ShadowBackground>
+//         <Original />
+//     </ShadowBackground>
+// </>);
+
 ProductPage.override(({Original}) => <>
-    <ShadowBackground>
-        <div style={{marginTop: "-156px"}}>
-            <Original />
-        </div>
-    </ShadowBackground>
+    <div style={{marginTop: "-20px"}}>
+        <ShadowBackground hideLeftBottom hideRightBottom>
+            <div style={{marginTop: "-128px"}} >
+                <Original />
+            </div>
+        </ShadowBackground>
+    </div>
 </>);
 
 SearchResults.override(({Original}) => <>
+    <div style={{paddingBottom: "128px"}}>
+        <Original />
+    </div>
+</>);
+
+MyAccount.override(({Original}) => <>
+    <div style={{paddingBottom: "256px"}}>
+        <Original />
+    </div>
+</>);
+
+Cart.override(({Original}) => <>
     <div style={{paddingBottom: "128px"}}>
         <Original />
     </div>
