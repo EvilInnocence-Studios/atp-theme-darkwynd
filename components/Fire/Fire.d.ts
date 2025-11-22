@@ -6,7 +6,7 @@ export declare interface IFireProps {
 
 // What gets passed into the component from the parent as attributes
 export declare interface IFireInputProps {
-
+    classes?: any;
 }
 
 export type FireProps = IFireInputProps & IFireProps;

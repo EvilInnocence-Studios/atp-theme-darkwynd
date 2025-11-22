@@ -12,7 +12,7 @@ export declare interface IAboutProps {
 
 // What gets passed into the component from the parent as attributes
 export declare interface IAboutInputProps {
-
+    classes?: any;
 }
 
 export type AboutProps = IAboutInputProps & IAboutProps;

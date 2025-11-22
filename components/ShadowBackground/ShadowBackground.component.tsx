@@ -1,4 +1,5 @@
 import { ShadowBackgroundProps } from "./ShadowBackground.d";
+import { overridable } from "@core/lib/overridable";
 import styles from './ShadowBackground.module.scss';
 
 import shadowLBottom from "./shadow-l-bottom.png";
@@ -11,10 +12,11 @@ import shadowRGradient from "./shadow-r-gradient.png";
 import showdowRWisps from "./shadow-r-mid.png";
 
 
-export const ShadowBackgroundComponent = ({
+export const ShadowBackgroundComponent = overridable(({
 	children,
 	hideLeftBottom, hideLeftGradient, hideLeftTop, hideLeftWisps,
 	hideRightBottom, hideRightGradient, hideRightTop, hideRightWisps,
+	classes = styles
 }: ShadowBackgroundProps) => {
 	const background = [
 		!hideLeftGradient && `url(${shadowLGradient}) left top repeat-y`,
@@ -28,10 +30,10 @@ export const ShadowBackgroundComponent = ({
 	].filter(b => b).join(", ");
 
 	return (
-		<div className={styles.shadowBackgroundContainer} style={{background}}>
-			<div className={styles.content}>
-                {children}
+		<div className={classes.shadowBackgroundContainer} style={{ background }}>
+			<div className={classes.content}>
+				{children}
 			</div>
 		</div>
 	);
-}
+});

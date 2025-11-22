@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
-import {FireProps} from "./Fire.d";
+import { overridable } from "@core/lib/overridable";
+import { FireProps } from "./Fire.d";
 import styles from './Fire.module.scss';
 import clsx from "clsx";
 import { GPU } from "gpu.js";
 
-export const FireComponent = ({containerRef, height, width}:FireProps) => {
+export const FireComponent = overridable(({ containerRef, height, width, classes = styles }: FireProps) => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
@@ -59,9 +60,9 @@ export const FireComponent = ({containerRef, height, width}:FireProps) => {
             // Removed static dim; fading handled in the kernel so sparks attenuate near the top-right
         }
 
-        const gpu = new GPU({canvas, mode: "webgl" });
+        const gpu = new GPU({ canvas, mode: "webgl" });
         const kernel = gpu
-            .createKernel(function(
+            .createKernel(function (
                 time: number,
                 x0: number[], y0: number[],
                 vx: number[], vy: number[],
@@ -76,7 +77,7 @@ export const FireComponent = ({containerRef, height, width}:FireProps) => {
                 // Spatial fade: bright at bottom-left, fades toward top-right
                 const u = x / W;                 // 0 at left, 1 at right
                 const v = 1.0 - (y / H);         // 1 at bottom, 0 at top
-                const fade = Math.max(0.0, Math.min(1.0, Math.min(v, 1-u)));
+                const fade = Math.max(0.0, Math.min(1.0, Math.min(v, 1 - u)));
 
                 let r = 0.0;
                 let g = 0.0;
@@ -125,7 +126,7 @@ export const FireComponent = ({containerRef, height, width}:FireProps) => {
             .setGraphical(true)
             .setConstants({ count: N })
             .setOutput([pxW, pxH])
-            .setContext(canvas.getContext("webgl", {premultipliedAlpha: false, alpha: true}));
+            .setContext(canvas.getContext("webgl", { premultipliedAlpha: false, alpha: true }));
 
         let raf = 0;
         const start = performance.now();
@@ -145,13 +146,13 @@ export const FireComponent = ({containerRef, height, width}:FireProps) => {
 
         return () => {
             cancelAnimationFrame(raf);
-            try { gpu.destroy(); } catch {}
+            try { gpu.destroy(); } catch { }
         };
     }, [width, height]);
 
     return (
-        <div ref={containerRef} className={clsx([styles.fire, "fireContainer"])}>
+        <div ref={containerRef} className={clsx([classes.fire, "fireContainer"])}>
             <canvas ref={canvasRef} />
         </div>
     );
-};
+});

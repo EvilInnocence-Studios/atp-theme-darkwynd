@@ -1,27 +1,28 @@
 import { Snippet } from "@common/components/Snippet";
+import { overridable } from "@core/lib/overridable";
 import { FancyHeader } from "../FancyHeader";
 import { AboutProps } from "./About.d";
 import styles from './About.module.scss';
 import { ShadowBackground } from "../ShadowBackground";
 
-export const AboutComponent = ({credits}:AboutProps) => <>
+export const AboutComponent = overridable(({ credits, classes = styles }: AboutProps) => <>
     <FancyHeader text="About Us" />
     <ShadowBackground>
-        <div className={styles.about}>
-            <div className={styles.credits}>
-                {credits.map(credit => <div key={credit.name} className={styles.credit}>
-                    <div className={styles.icon}>
+        <div className={classes.about}>
+            <div className={classes.credits}>
+                {credits.map(credit => <div key={credit.name} className={classes.credit}>
+                    <div className={classes.icon}>
                         {credit.icon ? <img src={credit.icon} alt={credit.name} /> : <>&nbsp;&nbsp;{credit.name.charAt(0)}</>}
                     </div>
                     <h3>
-                        <div className={styles.role}>{credit.role}</div>
-                        <div className={styles.name}>{credit.name}</div>
+                        <div className={classes.role}>{credit.role}</div>
+                        <div className={classes.name}>{credit.name}</div>
                     </h3>
-                    <p className={styles.info}>
+                    <p className={classes.info}>
                         <Snippet slug={credit.slug} />
                     </p>
                 </div>)}
             </div>
         </div>
     </ShadowBackground>
-</>;
+</>);

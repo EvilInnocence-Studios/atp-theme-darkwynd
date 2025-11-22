@@ -13,6 +13,7 @@ export declare interface IShadowBackgroundInputProps {
     hideRightBottom?: boolean;
     hideRightGradient?: boolean;
     hideRightWisps?: boolean;
+    classes?: any;
 }
 
 export type ShadowBackgroundProps = IShadowBackgroundInputProps & IShadowBackgroundProps;

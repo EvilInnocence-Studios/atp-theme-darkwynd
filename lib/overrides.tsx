@@ -22,11 +22,14 @@ import tormentDark from "../components/torment-dark.png";
 import torment from "../components/torment.png";
 import { MyAccount } from "@uac/components/MyAccount";
 import { Cart } from "@store/components/Cart";
+import { LoginFormComponent } from "@uac/components/LoginForm/LoginForm.component";
+import loginFormStyles from "../components/LoginForm/LoginForm.module.scss";
 
 // Custom site banner
+LoginFormComponent.overrideStyles(loginFormStyles);
 HeaderBanner.override(CustomBanner);
 
-Footer.override(({Original}) => <>
+Footer.override(({ Original }) => <>
     <style>{`
         .footer-background {
             overflow: visible;
@@ -57,7 +60,7 @@ Footer.override(({Original}) => <>
 
 // Custom fancy header and shadow background for the archives
 ArchivesHeader.hide();
-ArcView.override(({Original}) => <>
+ArcView.override(({ Original }) => <>
     <FancyHeader text="Archives" />
     <ShadowBackground>
         <Original />
@@ -65,7 +68,7 @@ ArcView.override(({Original}) => <>
 </>);
 
 // Add torment image into social links
-SocialLinks.override(({Original}) => <>
+SocialLinks.override(({ Original }) => <>
     <Original />
     <style>{`
         .torment-fade-wrap {
@@ -89,8 +92,8 @@ SocialLinks.override(({Original}) => <>
             opacity: 1;
         }
     `}</style>
-    <div style={{textAlign: 'right'}}>
-        <div className="torment-fade-wrap" style={{marginTop: '8px'}}>
+    <div style={{ textAlign: 'right' }}>
+        <div className="torment-fade-wrap" style={{ marginTop: '8px' }}>
             <img src={torment} alt="Torment" />
             <img src={tormentDark} className="torment-dark" alt="Torment (dark)" />
         </div>
@@ -98,8 +101,8 @@ SocialLinks.override(({Original}) => <>
 </>);
 
 // Add shadowed background and fancy header to CMS pages
-PageComponent.override(({Original, page, notFound}) => <>
-    <FancyHeader text={page?.title || (notFound  ? "404: Page Not Found" : "Loading...")} />
+PageComponent.override(({ Original, page, notFound }) => <>
+    <FancyHeader text={page?.title || (notFound ? "404: Page Not Found" : "Loading...")} />
     <ShadowBackground hideLeftBottom hideRightBottom hideLeftTop hideRightTop>
         <Original />
     </ShadowBackground>
@@ -107,7 +110,7 @@ PageComponent.override(({Original, page, notFound}) => <>
 PageHeader.hide();
 
 // Add shadowed background and fancy header to characters page
-CharactersPage.override(({Original}) => <>
+CharactersPage.override(({ Original }) => <>
     <FancyHeader text="Characters" />
     <ShadowBackground>
         <Original />
@@ -116,7 +119,7 @@ CharactersPage.override(({Original}) => <>
 CharacterPageHeader.hide();
 
 // Add shadowed background and fancy header to latest page
-LatestPage.override(({Original}) => <>
+LatestPage.override(({ Original }) => <>
     <FancyHeader text="Latest Page" />
     <ShadowBackground hideRightTop>
         <Original />
@@ -124,11 +127,11 @@ LatestPage.override(({Original}) => <>
 </>);
 
 // Add shadowed background and fancy header to individual comic pages
-Page.override(connectPageView(({Original, pageNumber}: any) => <>
+Page.override(connectPageView(({ Original, pageNumber }: any) => <>
     <FancyHeader text={`Page ${pageNumber}`} />
     <ShadowBackground>
         <Original />
-        <div style={{width: "100%", height: "128px"}} />
+        <div style={{ width: "100%", height: "128px" }} />
     </ShadowBackground>
 </>));
 
@@ -138,30 +141,30 @@ Page.override(connectPageView(({Original, pageNumber}: any) => <>
 //     </ShadowBackground>
 // </>);
 
-ProductPage.override(({Original}) => <>
-    <div style={{marginTop: "-20px"}}>
+ProductPage.override(({ Original }) => <>
+    <div style={{ marginTop: "-20px" }}>
         <ShadowBackground hideLeftBottom hideRightBottom>
-            <div style={{marginTop: "-128px"}} >
+            <div style={{ marginTop: "-128px" }} >
                 <Original />
             </div>
         </ShadowBackground>
     </div>
 </>);
 
-SearchResults.override(({Original}) => <>
-    <div style={{paddingBottom: "128px"}}>
+SearchResults.override(({ Original }) => <>
+    <div style={{ paddingBottom: "128px" }}>
         <Original />
     </div>
 </>);
 
-MyAccount.override(({Original}) => <>
-    <div style={{paddingBottom: "256px"}}>
+MyAccount.override(({ Original }) => <>
+    <div style={{ paddingBottom: "256px" }}>
         <Original />
     </div>
 </>);
 
-Cart.override(({Original}) => <>
-    <div style={{paddingBottom: "128px"}}>
+Cart.override(({ Original }) => <>
+    <div style={{ paddingBottom: "128px" }}>
         <Original />
     </div>
 </>);
