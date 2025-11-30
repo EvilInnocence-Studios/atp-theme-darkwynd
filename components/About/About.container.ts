@@ -8,17 +8,25 @@ import andy from "./Andy-Avatar.jpg";
 import gemma from "./Gemma-Avatar.jpg";
 import oliver from "./Oliver-Avatar.jpg";
 import seta from "./Seta-Avatar.jpg";
+import { useLayoutData } from "@core/lib/useLayoutData";
+import { useEffect } from "react";
 
-const injectAboutProps = createInjector(({}:IAboutInputProps):IAboutProps => {
+const injectAboutProps = createInjector(({ }: IAboutInputProps): IAboutProps => {
+    const [, setPageTitle] = useLayoutData<string>("pageTitle");
+
+    useEffect(() => {
+        setPageTitle("About Us");
+    }, []);
+
     const credits = [
-        { name: "Andrea",           role: "Writer",   icon: andrea, slug: "andrea" },
-        { name: "Gemma",            role: "Artist",   icon: gemma,  slug: "gemma"  },
-        { name: "Seta",             role: "Colorist", icon: seta,   slug: "seta"   },
-        { name: "Kaysa's Dibujos",  role: "Extras",   icon: oliver, slug: "oliver" },
-        { name: "Andy",             role: "Producer", icon: andy,   slug: "andy"   },
+        { name: "Andrea", role: "Writer", icon: andrea, slug: "andrea" },
+        { name: "Gemma", role: "Artist", icon: gemma, slug: "gemma" },
+        { name: "Seta", role: "Colorist", icon: seta, slug: "seta" },
+        { name: "Kaysa's Dibujos", role: "Extras", icon: oliver, slug: "oliver" },
+        { name: "Andy", role: "Producer", icon: andy, slug: "andy" },
     ];
-    
-    return {credits, isLoading: !credits.length};
+
+    return { credits, isLoading: !credits.length };
 });
 
 const connect = inject<IAboutInputProps, AboutProps>(mergeProps(

@@ -1,12 +1,10 @@
 import { Snippet } from "@common/components/Snippet";
 import { overridable } from "@core/lib/overridable";
-import { FancyHeader } from "../FancyHeader";
+import { ShadowBackground } from "../ShadowBackground";
 import { AboutProps } from "./About.d";
 import styles from './About.module.scss';
-import { ShadowBackground } from "../ShadowBackground";
 
 export const AboutComponent = overridable(({ credits, classes = styles }: AboutProps) => <>
-    <FancyHeader text="About Us" />
     <ShadowBackground>
         <div className={classes.about}>
             <div className={classes.credits}>

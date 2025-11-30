@@ -5,10 +5,10 @@ import styles from './FancyHeader.module.scss';
 import logo from "./logo-glowing.png";
 import swoosh from "./swoosh.png";
 
-export const FancyHeaderComponent = overridable(({ text, classes = styles }: FancyHeaderProps) => {
+export const FancyHeaderComponent = overridable(({ title, classes = styles }: FancyHeaderProps) => {
     return <div className={classes.headerContainer}>
         <h1 className={classes.curved} style={{ background: `url(${swoosh})` }}>
-            {text}<br />
+            {title}<br />
             <img src={logo} alt="DarkWynd Logo" className={classes.logo} />
         </h1>
     </div>;

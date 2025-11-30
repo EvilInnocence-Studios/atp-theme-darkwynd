@@ -1,10 +1,15 @@
-import { createInjector, inject, mergeProps } from "unstateless";
-import {FancyHeaderComponent} from "./FancyHeader.component";
-import {IFancyHeaderInputProps, FancyHeaderProps, IFancyHeaderProps} from "./FancyHeader.d";
 import { overridable } from "@core/lib/overridable";
+import { useLayoutData } from "@core/lib/useLayoutData";
+import { createInjector, inject, mergeProps } from "unstateless";
+import { FancyHeaderComponent } from "./FancyHeader.component";
+import { FancyHeaderProps, IFancyHeaderInputProps, IFancyHeaderProps } from "./FancyHeader.d";
 
-const injectFancyHeaderProps = createInjector(({}:IFancyHeaderInputProps):IFancyHeaderProps => {
-    return {};
+const injectFancyHeaderProps = createInjector(({ text }: IFancyHeaderInputProps): IFancyHeaderProps => {
+    const [contextTitle] = useLayoutData<string>("pageTitle");
+
+    const title = text || contextTitle;
+
+    return { title };
 });
 
 const connect = inject<IFancyHeaderInputProps, FancyHeaderProps>(mergeProps(
