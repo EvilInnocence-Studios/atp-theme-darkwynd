@@ -1,3 +1,5 @@
+import { string } from "css-tree";
+
 export declare interface IFancyHeaderProps {
     title: string;
 }
@@ -6,6 +8,8 @@ export declare interface IFancyHeaderProps {
 export declare interface IFancyHeaderInputProps {
     text?: string;
     classes?: any;
+    className?: string;
+    css?: string;
 }
 
 export type FancyHeaderProps = IFancyHeaderInputProps & IFancyHeaderProps;

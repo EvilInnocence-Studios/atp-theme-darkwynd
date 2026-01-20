@@ -3,6 +3,8 @@ import { useLayoutData } from "@theming/lib/useLayoutData";
 import { createInjector, inject, mergeProps } from "unstateless";
 import { FancyHeaderComponent } from "./FancyHeader.component";
 import { FancyHeaderProps, IFancyHeaderInputProps, IFancyHeaderProps } from "./FancyHeader.d";
+import { withLayoutMetadata } from "@theming/lib/layout/componentRegistry";
+import { FancyHeaderPropEditor } from "./FancyHeader.props";
 
 const injectFancyHeaderProps = createInjector(({ text }: IFancyHeaderInputProps): IFancyHeaderProps => {
     const [contextTitle] = useLayoutData<string>("pageTitle");
@@ -16,4 +18,12 @@ const connect = inject<IFancyHeaderInputProps, FancyHeaderProps>(mergeProps(
     injectFancyHeaderProps,
 ));
 
-export const FancyHeader = overridable<IFancyHeaderInputProps>(connect(FancyHeaderComponent));
+export const FancyHeader = withLayoutMetadata(
+    overridable<IFancyHeaderInputProps>(connect(FancyHeaderComponent)),
+    {
+        name: "FancyHeader",
+        displayName: "Fancy Header",
+        category: "Darkwynd",
+        propEditor: FancyHeaderPropEditor,
+    }
+);

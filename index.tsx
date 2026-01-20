@@ -9,5 +9,5 @@ export const module: IModule = {
     routes: customRoutes,
 };
 
-ComponentRegistry.register("FancyHeader", FancyHeader, { category: "Layouts", displayName: "Fancy Header" });
-ComponentRegistry.register("ShadowBackground", ShadowBackground, { category: "Layouts", displayName: "Shadow Background" });
+ComponentRegistry.register(FancyHeader);
+ComponentRegistry.register("ShadowBackground", ShadowBackground, { category: "Darkwynd", displayName: "Shadow Background" });
