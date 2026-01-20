@@ -1,3 +1,5 @@
+import { ILayoutComponent } from "@theming/lib/layout/layout";
+
 export declare interface IShadowBackgroundProps {
 
 }
@@ -14,6 +16,10 @@ export declare interface IShadowBackgroundInputProps {
     hideRightGradient?: boolean;
     hideRightWisps?: boolean;
     classes?: any;
+    css?: string;
+    className?: string;
+    __layoutId?: string;
+    slots?: Index<ILayoutComponent[]>;
 }
 
 export type ShadowBackgroundProps = IShadowBackgroundInputProps & IShadowBackgroundProps;

@@ -10,4 +10,4 @@ export const module: IModule = {
 };
 
 ComponentRegistry.register(FancyHeader);
-ComponentRegistry.register("ShadowBackground", ShadowBackground, { category: "Darkwynd", displayName: "Shadow Background" });
+ComponentRegistry.register(ShadowBackground);

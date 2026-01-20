@@ -10,13 +10,15 @@ import shadowRTop from "./shadow-r-top.png";
 import shadowRBottom from "./shadow-r-bottom.png";
 import shadowRGradient from "./shadow-r-gradient.png";
 import showdowRWisps from "./shadow-r-mid.png";
+import { SlotRenderer } from "@theming/components/SlotRenderer";
 
 
 export const ShadowBackgroundComponent = overridable(({
-	children,
 	hideLeftBottom, hideLeftGradient, hideLeftTop, hideLeftWisps,
 	hideRightBottom, hideRightGradient, hideRightTop, hideRightWisps,
-	classes = styles
+	classes = styles,
+	slots,
+	__layoutId,
 }: ShadowBackgroundProps) => {
 	const background = [
 		!hideLeftGradient && `url(${shadowLGradient}) left top repeat-y`,
@@ -32,7 +34,12 @@ export const ShadowBackgroundComponent = overridable(({
 	return (
 		<div className={classes.shadowBackgroundContainer} style={{ background }}>
 			<div className={classes.content}>
-				{children}
+				<SlotRenderer
+					slots={slots?.[`children`]} 
+					parentId={__layoutId}
+					slotName="children"
+					getDisplayName={() => "Children"}
+				/>
 			</div>
 		</div>
 	);
