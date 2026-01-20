@@ -1,4 +1,4 @@
-import { ITheme } from "@core/lib/layout/layout";
+import { ILayoutComponent } from "@theming/lib/layout/layout";
 
 const globalCss = `
     body {
@@ -319,201 +319,193 @@ const homepageFeaturedProductsCss = `
     }
 `;
 
-export const DarkwyndLayoutConfig: ITheme = {
-    name: "standard",
-    routes: {
-        "/": "default"
-    },
-    css: globalCss,
-    layouts: {
-        default: {
-            component: "StandardLayout",
-            slots: {
-                header: [
-                    { component: "MailchimpPopup"},
-                    { component: "LogoSpinner"},
+export const DarkwyndLayoutConfig: ILayoutComponent = {
+    component: "StandardLayout",
+    slots: {
+        header: [
+            { component: "MailchimpPopup"},
+            { component: "LogoSpinner"},
+            {
+                component: "Div",
+                props: { className: "darkwyndBanner" },
+                css: bannerCss,
+                slots: {
+                    children: [
+                        { component: "Img", props: { src: "https://media.darkwyndchronicles.com/media/images/banner-logo.png" } }
+                    ]
+                }
+            },
+            { component: "LinkList", props: { id: "top", className: "topMenu" }, css: topMenuCss },
+            {
+                "/products,/products/*,/cart,/my-account,/my-account/*": [
                     {
-                        component: "Div",
-                        props: { className: "darkwyndBanner" },
-                        css: bannerCss,
+                        component: "Row",
+                        props: { className: "pageHeader" },
+                        css: pageHeaderCss,
                         slots: {
                             children: [
-                                { component: "Img", props: { src: "https://media.darkwyndchronicles.com/media/images/banner-logo.png" } }
+                                {
+                                    component: "Col",
+                                    props: { xs: 16, lg: { span: 6, push: 9 }, className: "search" },
+                                    slots: {
+                                        children: [
+                                            { component: "ProductSearchInput" }
+                                        ]
+                                    }
+                                },
+                                {
+                                    component: "Col",
+                                    props: { xs: 8, lg: { span: 9, push: 9 }, className: "account" },
+                                    slots: {
+                                        children: [
+                                            { component: "AccountMenu" },
+                                            { component: "CartBtn" }
+                                        ]
+                                    }
+                                }
                             ]
                         }
-                    },
-                    { component: "LinkList", props: { id: "top", className: "topMenu" }, css: topMenuCss },
-                    {
-                        "/products,/products/*,/cart,/my-account,/my-account/*": [
-                            {
-                                component: "Row",
-                                props: { className: "pageHeader" },
-                                css: pageHeaderCss,
-                                slots: {
-                                    children: [
-                                        {
-                                            component: "Col",
-                                            props: { xs: 16, lg: { span: 6, push: 9 }, className: "search" },
-                                            slots: {
-                                                children: [
-                                                    { component: "ProductSearchInput" }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            component: "Col",
-                                            props: { xs: 8, lg: { span: 9, push: 9 }, className: "account" },
-                                            slots: {
-                                                children: [
-                                                    { component: "AccountMenu" },
-                                                    { component: "CartBtn" }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
                     }
-                ],
-                content: [{
-                    "/comic/arc/*,/comic/arc": [
-                        { component: "FancyHeader", props: { text: "Archives" } },
-                        { component: "ShadowBackground", slots: { children: [{ component: "Content" }] } }
-                    ],
-                    "/comic/page/*": [
-                        { component: "FancyHeader" },
-                        {
-                            component: "ShadowBackground", slots: {
-                                children: [
-                                    { component: "Content" },
-                                    { component: "Div", props: { style: { width: "100%", height: "128px" } } }
-                                ]
-                            }
-                        },
-                    ],
-                    "/comic/characters,/comic/characters/*": [
-                        { component: "FancyHeader", props: { text: "Characters" } },
-                        { component: "ShadowBackground", slots: { children: [{ component: "Content" }] } }
-                    ],
-                    "/products,/products/*,/cart,/my-account,/my-account/*": [
-                        { component: "Content" }
-                    ],
-                    "/": [
-                        { component: "FancyHeader", props: { text: "Latest Page" } },
-                        { component: "ShadowBackground", slots: { children: [
-                            { component: "Row", slots: { children: [
-                                {
-                                    component: "Col",
-                                    props: { xs: 24, md: 18, xl: { span: 16, push: 4 } },
-                                    slots: { children: [
-                                        { component: "LatestPage" },
-                                        {
-                                            component: "NewProducts",
-                                            props: { title: "Get the Books!", hideCartButton: true, className: "homepageFeaturedProducts" },
-                                            css: homepageFeaturedProductsCss,
-                                        },
-                                        { component: "Div", props: { style: { width: "100%", height: "128px" } } }
-                                    ] } },
-                                {
-                                    component: "Col",
-                                    props: { xs: 24, md: 6, xl: { span: 4, push: 4 } },
-                                    css: newsFeedCss,
-                                    slots: { children: [
-                                        { component: "Div", props: {className: "newsFeed"}, css: newsFeedCss, slots: {
-                                            children: [
-                                                { component: "H2", props: { children: "News Feed" } },
-                                                { component: "BlueSkyFeed", props: { pageSize: 5 } }
-                                            ]
-                                        }}
-                                    ] }
-                                }
-                            ]}}
-                        ] } }
-                    ],
-                    "/*": [
-                        { component: "FancyHeader" },
-                        { component: "ShadowBackground", slots: { children: [{ component: "Content" }] } }
-                    ],
-                    "*": [{
-                        component: "Content"
-                    }]
-                }],
-                footer: [{
-                    component: "Div",
-                    props: { className: "footer-background" },
-                    css: footerBgCss,
-                    slots: {
-                        children: [
-                            {
-                                component: "Row",
-                                props: { gutter: 16, className: "footer" },
-                                css: footerRowCss,
-                                slots: {
-                                    children: [
-                                        {
-                                            component: "Col",
-                                            props: { xs: 24, sm: 6, className: "socialLinksContainer" },
-                                            css: socialLinksContainerCss,
-                                            slots: {
-                                                children: [
-                                                    { component: "SocialLinks" },
-                                                    {
-                                                        component: "Div",
-                                                        props: { style: { textAlign: "right" } },
-                                                        slots: {
-                                                            children: [{
-                                                                component: "Div",
-                                                                props: { className: "torment-fade-wrap" },
-                                                                css: tormentCss,
-                                                                slots: {
-                                                                    children: [
-                                                                        { component: "Img", props: { src: "https://media.darkwyndchronicles.com/media/images/torment.png" } },
-                                                                        { component: "Img", props: { src: "https://media.darkwyndchronicles.com/media/images/torment-dark.png", className: "torment-dark" } }
-                                                                    ]
-                                                                }
-                                                            }]
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            component: "Col",
-                                            props: { xs: 24, sm: 9, lg: 12, className: "footerLinks" },
-                                            css: footerLinksCss,
-                                            slots: {
-                                                children: [
-                                                    { component: "LinkList", props: { id: "footer" } }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            component: "Col",
-                                            props: { xs: 24, sm: 6, className: "newsletter" },
-                                            css: newsLetterCss,
-                                            slots: {
-                                                children: [
-                                                    { component: "MailchimpForm" }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            component: "Col",
-                                            props: { xs: 24, style: { textAlign: "center" } },
-                                            slots: {
-                                                children: [
-                                                    { component: "Copyright" }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                }]
+                ]
             }
-        }
-    }
+        ],
+        content: [{
+            "/comic/arc/*,/comic/arc": [
+                { component: "FancyHeader", props: { text: "Archives" } },
+                { component: "ShadowBackground", slots: { children: [{ component: "Content" }] } }
+            ],
+            "/comic/page/*": [
+                { component: "FancyHeader" },
+                {
+                    component: "ShadowBackground", slots: {
+                        children: [
+                            { component: "Content" },
+                            { component: "Div", props: { style: { width: "100%", height: "128px" } } }
+                        ]
+                    }
+                },
+            ],
+            "/comic/characters,/comic/characters/*": [
+                { component: "FancyHeader", props: { text: "Characters" } },
+                { component: "ShadowBackground", slots: { children: [{ component: "Content" }] } }
+            ],
+            "/products,/products/*,/cart,/my-account,/my-account/*": [
+                { component: "Content" }
+            ],
+            "/": [
+                { component: "FancyHeader", props: { text: "Latest Page" } },
+                { component: "ShadowBackground", slots: { children: [
+                    { component: "Row", slots: { children: [
+                        {
+                            component: "Col",
+                            props: { xs: 24, md: 18, xl: { span: 16, push: 4 } },
+                            slots: { children: [
+                                { component: "LatestPage" },
+                                {
+                                    component: "NewProducts",
+                                    props: { title: "Get the Books!", hideCartButton: true, className: "homepageFeaturedProducts" },
+                                    css: homepageFeaturedProductsCss,
+                                },
+                                { component: "Div", props: { style: { width: "100%", height: "128px" } } }
+                            ] } },
+                        {
+                            component: "Col",
+                            props: { xs: 24, md: 6, xl: { span: 4, push: 4 } },
+                            css: newsFeedCss,
+                            slots: { children: [
+                                { component: "Div", props: {className: "newsFeed"}, css: newsFeedCss, slots: {
+                                    children: [
+                                        { component: "H2", props: { children: "News Feed" } },
+                                        { component: "BlueSkyFeed", props: { pageSize: 5 } }
+                                    ]
+                                }}
+                            ] }
+                        }
+                    ]}}
+                ] } }
+            ],
+            "/*": [
+                { component: "FancyHeader" },
+                { component: "ShadowBackground", slots: { children: [{ component: "Content" }] } }
+            ],
+            "*": [{
+                component: "Content"
+            }]
+        }],
+        footer: [{
+            component: "Div",
+            props: { className: "footer-background" },
+            css: footerBgCss,
+            slots: {
+                children: [
+                    {
+                        component: "Row",
+                        props: { gutter: 16, className: "footer" },
+                        css: footerRowCss,
+                        slots: {
+                            children: [
+                                {
+                                    component: "Col",
+                                    props: { xs: 24, sm: 6, className: "socialLinksContainer" },
+                                    css: socialLinksContainerCss,
+                                    slots: {
+                                        children: [
+                                            { component: "SocialLinks" },
+                                            {
+                                                component: "Div",
+                                                props: { style: { textAlign: "right" } },
+                                                slots: {
+                                                    children: [{
+                                                        component: "Div",
+                                                        props: { className: "torment-fade-wrap" },
+                                                        css: tormentCss,
+                                                        slots: {
+                                                            children: [
+                                                                { component: "Img", props: { src: "https://media.darkwyndchronicles.com/media/images/torment.png" } },
+                                                                { component: "Img", props: { src: "https://media.darkwyndchronicles.com/media/images/torment-dark.png", className: "torment-dark" } }
+                                                            ]
+                                                        }
+                                                    }]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    component: "Col",
+                                    props: { xs: 24, sm: 9, lg: 12, className: "footerLinks" },
+                                    css: footerLinksCss,
+                                    slots: {
+                                        children: [
+                                            { component: "LinkList", props: { id: "footer" } }
+                                        ]
+                                    }
+                                },
+                                {
+                                    component: "Col",
+                                    props: { xs: 24, sm: 6, className: "newsletter" },
+                                    css: newsLetterCss,
+                                    slots: {
+                                        children: [
+                                            { component: "MailchimpForm" }
+                                        ]
+                                    }
+                                },
+                                {
+                                    component: "Col",
+                                    props: { xs: 24, style: { textAlign: "center" } },
+                                    slots: {
+                                        children: [
+                                            { component: "Copyright" }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }]
+    },
+    css: globalCss,
 }

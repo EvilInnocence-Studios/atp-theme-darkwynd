@@ -1,5 +1,5 @@
 import { overridable } from "@core/lib/overridable";
-import { useLayoutData } from "@core/lib/useLayoutData";
+import { useLayoutData } from "@theming/lib/useLayoutData";
 import { useEffect } from "react";
 import { createInjector, inject, mergeProps } from "unstateless";
 import { LinksComponent } from "./Links.component";

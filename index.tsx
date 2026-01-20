@@ -1,4 +1,4 @@
-import { ComponentRegistry, containerLayoutComponent } from "@core/lib/layout/componentRegistry";
+import { ComponentRegistry, containerLayoutComponent } from "@theming/lib/layout/componentRegistry";
 import { IModule } from "@core/lib/module";
 import { FancyHeader } from "./components/FancyHeader";
 import { ShadowBackground } from "./components/ShadowBackground";

@@ -8,7 +8,7 @@ import andy from "./Andy-Avatar.jpg";
 import gemma from "./Gemma-Avatar.jpg";
 import oliver from "./Oliver-Avatar.jpg";
 import seta from "./Seta-Avatar.jpg";
-import { useLayoutData } from "@core/lib/useLayoutData";
+import { useLayoutData } from "@theming/lib/useLayoutData";
 import { useEffect } from "react";
 
 const injectAboutProps = createInjector(({ }: IAboutInputProps): IAboutProps => {
