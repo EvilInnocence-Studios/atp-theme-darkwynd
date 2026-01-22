@@ -20,15 +20,15 @@ PageHeader.hide();
 
 CharacterPageHeader.hide();
 
-ProductPage.override(({ Original }) => <>
-    <div style={{ marginTop: "-20px" }}>
-        <ShadowBackground hideLeftBottom hideRightBottom>
-            <div style={{ marginTop: "-128px" }} >
-                <Original />
-            </div>
-        </ShadowBackground>
-    </div>
-</>);
+// ProductPage.override(({ Original }) => <>
+//     <div style={{ marginTop: "-20px" }}>
+//         <ShadowBackground hideLeftBottom hideRightBottom>
+//             <div style={{ marginTop: "-128px" }} >
+//                 <Original />
+//             </div>
+//         </ShadowBackground>
+//     </div>
+// </>);
 
 SearchResults.override(({ Original }) => <>
     <div style={{ paddingBottom: "128px" }}>
