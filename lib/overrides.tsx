@@ -6,7 +6,7 @@ import { LoginFormComponent } from "@uac/components/LoginForm/LoginForm.componen
 import loginFormStyles from "../components/LoginForm/LoginForm.module.scss";
 
 // Custom site banner
-LoginFormComponent.overrideStyles(loginFormStyles);
+// LoginFormComponent.overrideStyles(loginFormStyles);
 
 // Custom fancy header for the archives, CMS pages, and character page
 ArchivesHeader.hide();
