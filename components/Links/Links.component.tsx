@@ -1,4 +1,4 @@
-import { BannerAd, HalfSkyscraperAd, WideSkyscraperAd } from "@comic/components/ComicAd";
+import { BannerAd, HalfSkyscraperAd, WideSkyscraperAd } from "@comicad/components/ComicAd";
 import { BannerList } from "@common/components/BannerList";
 import { LinkList } from "@common/components/LinkList";
 import { overridable } from "@core/lib/overridable";
