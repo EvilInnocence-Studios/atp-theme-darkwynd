@@ -27,7 +27,7 @@ export const LinksComponent = overridable(({ classes = styles }: LinksProps) => 
             <BannerList tag="linksRight" columns={1} /><br />
             <WideSkyscraperAd key={`right-ad-${Date.now()}`} code="3QtYTqQ15U" />
         </Col>
-        <Col xs={24} sm={0} className={classes.bottomAd}>
+        <Col xs={24} className={classes.bottomAd}>
             <BannerAd key={`bottom-ad-${Date.now()}`} code="T5fg5kxu4G" />
         </Col>
     </Row>
