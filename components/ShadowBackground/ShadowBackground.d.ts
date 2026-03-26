@@ -20,6 +20,7 @@ export declare interface IShadowBackgroundInputProps {
     className?: string;
     __layoutId?: string;
     slots?: Index<ILayoutComponent[]>;
+    name?: string;
 }
 
 export type ShadowBackgroundProps = IShadowBackgroundInputProps & IShadowBackgroundProps;

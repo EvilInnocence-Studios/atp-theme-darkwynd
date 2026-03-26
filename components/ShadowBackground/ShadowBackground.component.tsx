@@ -19,7 +19,7 @@ export const ShadowBackgroundComponent = overridable(({
 	hideRightBottom, hideRightGradient, hideRightTop, hideRightWisps,
 	classes = styles,
 	slots,
-	__layoutId,
+	__layoutId, name,
 	className, css,
 }: ShadowBackgroundProps) => {
 	const background = [
@@ -41,6 +41,7 @@ export const ShadowBackgroundComponent = overridable(({
 					slots={slots?.[`children`]} 
 					parentId={__layoutId}
 					slotName="children"
+					componentName={name}
 					getDisplayName={() => "Children"}
 				/>
 			</div>
