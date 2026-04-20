@@ -1,4 +1,3 @@
-import { Snippet } from "@common/components/Snippet";
 import { overridable } from "@core/lib/overridable";
 import { AboutProps } from "./About.d";
 import styles from './About.module.scss';
@@ -15,7 +14,7 @@ export const AboutComponent = overridable(({ credits, classes = styles }: AboutP
                     <div className={classes.name}>{credit.name}</div>
                 </h3>
                 <p className={classes.info}>
-                    <Snippet slug={credit.slug} />
+                    Person info goes here.
                 </p>
             </div>)}
         </div>
