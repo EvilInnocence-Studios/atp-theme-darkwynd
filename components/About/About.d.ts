@@ -3,6 +3,7 @@ export declare interface ICredit {
     role: string;
     icon: string;
     slug: string;
+    content: string | null;
 }
 
 export declare interface IAboutProps {

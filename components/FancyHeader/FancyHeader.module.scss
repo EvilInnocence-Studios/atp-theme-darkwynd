@@ -23,12 +23,11 @@
     height: 180px;
     font-family: "DarkwyndFont", sans-serif;
     font-size: 32px;
-    color: #f5f5f5;
     text-shadow:
-        2px 2px 4px #444444,
-        -2px -2px 4px #444444,
-        2px -2px 4px #444444,
-        -2px 2px 4px #444444;
+        2px 2px 4px var(--primaryColor),
+        -2px -2px 4px var(--primaryColor),
+        2px -2px 4px var(--primaryColor),
+        -2px 2px 4px var(--primaryColor);
 }
 
 .logo {

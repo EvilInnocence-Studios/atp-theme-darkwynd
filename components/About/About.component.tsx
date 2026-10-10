@@ -1,6 +1,8 @@
 import { overridable } from "@core/lib/overridable";
 import { AboutProps } from "./About.d";
 import styles from './About.module.scss';
+import Markdown from "marked-react";
+import { Spin } from "antd";
 
 export const AboutComponent = overridable(({ credits, classes = styles }: AboutProps) => <>
     <div className={classes.about}>
@@ -13,9 +15,9 @@ export const AboutComponent = overridable(({ credits, classes = styles }: AboutP
                     <div className={classes.role}>{credit.role}</div>
                     <div className={classes.name}>{credit.name}</div>
                 </h3>
-                <p className={classes.info}>
-                    Person info goes here.
-                </p>
+                <div className={classes.info}>
+                    {credit.content ? <Markdown>{credit.content}</Markdown> : <Spin spinning />}
+                </div>
             </div>)}
         </div>
     </div>

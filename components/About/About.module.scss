@@ -5,11 +5,14 @@
     padding-bottom: 64px;
     max-width: 768px;
     margin: auto;
+
     .credit {
         clear: both;
         margin-bottom: 64px;
         margin-left: 64px;
         padding: 0;
+        border: solid 5px var(--borderColor);
+
         .icon {
             width: 128px;
             height: 128px;
@@ -17,26 +20,33 @@
             margin-left: -64px;
             margin-top: -8px;
             font-size: 64px;
+            border: solid 5px var(--borderColor);
             border-radius: 64px;
             float: left;
             overflow: hidden;
+
             img {
                 width: 100%;
             }
         }
+
         .role {
             font-size: 32px;
             float: right;
             font-style: italic;
         }
+
         .name {
             padding-left: 48px;
         }
+
         h3 {
             margin: 0;
             font-size: 32px;
             padding: 16px 64px;
+            background-color: #000000;
         }
+
         .info {
             max-width: calc(100% - 64px);
             padding: 16px;
